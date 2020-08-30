@@ -1,4 +1,4 @@
-package priv.wxl.rocket.consumer;
+package priv.wxl.rocket.consumer.basic;
 
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;
@@ -18,7 +18,7 @@ public class Consumer {
         DefaultMQPushConsumer consumer = new DefaultMQPushConsumer(JmsConfig.CONSUMER_GROUP);
         consumer.setNamesrvAddr(JmsConfig.NAME_SERVER);
 
-        consumer.subscribe(JmsConfig.TOPIC, "*");
+        consumer.subscribe(JmsConfig.BASIC_TOPIC, "*");
 
         consumer.registerMessageListener(
                 (List<MessageExt> list, ConsumeConcurrentlyContext consumeConcurrentlyContext) -> {
