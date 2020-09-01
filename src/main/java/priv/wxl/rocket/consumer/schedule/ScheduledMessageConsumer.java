@@ -38,5 +38,6 @@ public class ScheduledMessageConsumer {
 
         // 启动消费者
         consumer.start();
+        System.out.println("Consumer Started...");
     }
 }

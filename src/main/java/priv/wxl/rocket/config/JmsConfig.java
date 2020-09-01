@@ -15,6 +15,7 @@ public class JmsConfig {
      * 发送者组
      */
     public static final String PRODUCER_GROUP = "test_producer_group";
+    public static final String TRANSACTION_PRODUCER_GROUP = "transaction_producer_group";
 
     /**
      * 发送测试消息的默认数量

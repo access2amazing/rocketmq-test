@@ -21,7 +21,7 @@ import java.util.concurrent.*;
 public class TransactionProducer {
     public static void main(String[] args) throws Exception {
         TransactionListener transactionListener = new TransactionListenerImpl();
-        TransactionMQProducer producer = new TransactionMQProducer(JmsConfig.PRODUCER_GROUP);
+        TransactionMQProducer producer = new TransactionMQProducer(JmsConfig.TRANSACTION_PRODUCER_GROUP);
         ExecutorService executorService = new ThreadPoolExecutor(2, 5,
                 100, TimeUnit.SECONDS, new ArrayBlockingQueue<>(2000), (runnable) -> {
             Thread thread = new Thread(runnable);

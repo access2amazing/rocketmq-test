@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 复杂度只有当你发送大批量时才会增长，你可能不确定它是否超过了大小限制（4MB）。这时候你最好把你的消息列表分割一下：
+ * 当发送大批量时，最好把你的消息列表分割一下
  *
  * @author xueli.wang
  * @since 2020/08/30 23:08

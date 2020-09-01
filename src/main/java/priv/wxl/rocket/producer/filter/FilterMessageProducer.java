@@ -14,6 +14,7 @@ import priv.wxl.rocket.config.JmsConfig;
 public class FilterMessageProducer {
     public static void main(String[] args) throws Exception {
         DefaultMQProducer producer = new DefaultMQProducer(JmsConfig.PRODUCER_GROUP);
+        producer.setNamesrvAddr(JmsConfig.NAME_SERVER);
         producer.start();
         for (int i = 0; i < 10; i++) {
             Message msg = new Message(JmsConfig.FILTER_TOPIC,
