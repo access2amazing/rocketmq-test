@@ -28,7 +28,7 @@ public class OrderMessageConsumer {
         // 如果非第一次启动，那么按照上次消费的位置继续消费
         consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_FIRST_OFFSET);
 
-        consumer.subscribe(JmsConfig.ORDER_TOPIC, "TagA || TagC || TagD");
+        consumer.subscribe(JmsConfig.ORDER_TOPIC, "TagA || TagB || TagC");
 
         consumer.registerMessageListener(new MessageListenerOrderly() {
 
@@ -40,13 +40,13 @@ public class OrderMessageConsumer {
                 for (MessageExt messageExt : messageExtList) {
                     // 可以看到每个queue有唯一的consume线程来消费, 订单对每个queue(分区)有序
                     System.out.println("consumeThread=" + Thread.currentThread().getName() +
-                            "queueId=" + messageExt.getQueueId() +
+                            ", queueId=" + messageExt.getQueueId() +
                             ", content:" + new String(messageExt.getBody()));
                 }
 
                 try {
-                    //模拟业务逻辑处理中...
-                    TimeUnit.SECONDS.sleep(random.nextInt(10));
+                    // 模拟业务逻辑处理中...
+                    TimeUnit.SECONDS.sleep(random.nextInt(5));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

@@ -20,6 +20,7 @@ public class ScheduledMessageConsumer {
     public static void main(String[] args) throws Exception {
         // 实例化消费者
         DefaultMQPushConsumer consumer = new DefaultMQPushConsumer(JmsConfig.CONSUMER_GROUP);
+        consumer.setNamesrvAddr(JmsConfig.NAME_SERVER);
         // 订阅Topics
         consumer.subscribe(JmsConfig.SCHEDULE_TOPIC, "*");
         // 注册消息监听者

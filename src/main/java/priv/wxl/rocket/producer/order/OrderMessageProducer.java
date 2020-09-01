@@ -40,7 +40,7 @@ public class OrderMessageProducer {
         Date date = new Date();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String dateStr = simpleDateFormat.format(date);
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < JmsConfig.DEFAULT_MESSAGE_COUNT; i++) {
             // 加个时间前缀
             String msgBody = dateStr + " Hello RocketMQ" + orderList.get(i);
             Message message = new Message(JmsConfig.ORDER_TOPIC,

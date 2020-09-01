@@ -19,7 +19,7 @@ public class JmsConfig {
     /**
      * 发送测试消息的默认数量
      */
-    public static final int DEFAULT_MESSAGE_COUNT = 100;
+    public static final int DEFAULT_MESSAGE_COUNT = 10;
 
     /**
      * 消费者组
