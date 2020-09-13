@@ -25,5 +25,13 @@ public class BasicTest {
         System.out.println(f);
         Arrays.sort(tests);
         System.out.println(Arrays.toString(tests));
+
+        Integer a = null;
+        try {
+            System.out.println(Long.valueOf(a));
+        } catch (Exception e) {
+            System.out.println("e");
+        }
+
     }
 }
